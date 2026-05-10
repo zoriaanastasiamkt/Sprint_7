@@ -7,6 +7,7 @@ import java.text.SimpleDateFormat;
 
 public class OrderData {
     public static final String ORDER_ENDPOINT = "/api/v1/orders";
+    public static final String CANCEL_ORDER_ENDPOINT = "/api/v1/orders/cancel";
 
     private static final SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 

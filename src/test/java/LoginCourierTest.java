@@ -1,3 +1,4 @@
+import io.qameta.allure.Description;
 import models.CourierModel;
 import org.junit.After;
 import org.junit.Test;
@@ -14,6 +15,7 @@ public class LoginCourierTest extends BaseApiTest{
     //авторизация курьера - Запрос должен успешно проходить и возвращать id курьера
         @Test
         @DisplayName("Courier login success with returned ID")
+        @Description("Positive verification of the courier's authorization in the system - if the courier was created in advance")
         public void testLoginCourierSuccess() {
             CourierModel courier = new CourierModel(LOGIN, PASSWORD, FIRSTNAME);
 
@@ -28,6 +30,7 @@ public class LoginCourierTest extends BaseApiTest{
     //авторизация курьера с неверным логином (=несуществующий пользователь) - Запрос должен вернуть ошибку
     @Test
     @DisplayName("Courier login with wrong login")
+    @Description("Negative verification of the courier's authorization in the system - with incorrect data")
     public void testLoginCourierWrongLoginFail() {
         String wrongLogin = LOGIN + "_" + System.currentTimeMillis();
         CourierModel courier = new CourierModel(wrongLogin, PASSWORD, FIRSTNAME);
@@ -42,6 +45,7 @@ public class LoginCourierTest extends BaseApiTest{
     //авторизация курьера с неверным паролем - Запрос должен вернуть ошибку
     @Test
     @DisplayName("Courier login with wrong password")
+    @Description("Negative verification of the courier's authorization in the system - with incorrect data")
     public void testLoginCourierWrongPasswordFail() {
         CourierModel courier = new CourierModel(LOGIN, PASSWORD, FIRSTNAME);
 
@@ -62,6 +66,7 @@ public class LoginCourierTest extends BaseApiTest{
     //авторизация курьера без обязательного поля login - запрос должен возвращать ошибку
     @Test
     @DisplayName("Courier login without login strim")
+    @Description("Negative verification of the courier's authorization in the system - without all the required fields")
     public void testLoginCourierWithoutLoginFail() {
         CourierModel courier = new CourierModel(null, PASSWORD, FIRSTNAME);
 
@@ -75,6 +80,7 @@ public class LoginCourierTest extends BaseApiTest{
     //авторизация курьера без обязательного поля password - запрос должен возвращать ошибку
     @Test
     @DisplayName("Courier login without password strim")
+    @Description("Negative verification of the courier's authorization in the system - without all the required fields")
     public void testLoginCourierWithoutPasswordFail() {
         CourierModel courier = new CourierModel(LOGIN, null, FIRSTNAME);
 

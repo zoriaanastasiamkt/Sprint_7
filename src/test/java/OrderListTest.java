@@ -1,4 +1,5 @@
 
+import io.qameta.allure.Description;
 import models.OrderModel;
 import org.hamcrest.core.IsNull;
 import org.junit.After;
@@ -12,6 +13,7 @@ public class OrderListTest extends BaseApiTest {
     //Проверка ручки списка заказов
     @Test
     @DisplayName("Check the list of orders can be displayed")
+    @Description("Positive test of the output list of all orders")
     public void testGetOrderListSuccess() {
         OrderModel order = new OrderModel();
 

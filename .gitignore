@@ -35,5 +35,10 @@ build/
 ### VS Code ###
 .vscode/
 
+o
 ### Mac OS ###
 .DS_Store
+/.idea/
+/target/
+/.allure/
+
